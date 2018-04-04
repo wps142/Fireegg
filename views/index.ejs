@@ -1,0 +1,259 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Fireegg</title>
+	<!--/tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Lively Chat Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!--//tags -->
+	<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/font-awesome.css" rel="stylesheet">
+	<!-- //for bootstrap working -->
+	<link href="//fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
+	    rel='stylesheet' type='text/css'>
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
+</head>
+
+<body>
+	<!-- header -->
+	<div class="header" id="home">
+		<div class="top_menu_w3layouts">
+
+			<div class="header_left">
+				<ul>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="/mail">fireegg-services@outlook.com</a></li>
+				</ul>
+			</div>
+
+
+			<div class="header_right">
+				<ul class="forms_right">
+					<li>
+						<label style="color:#999c9e;font-size: 10px;">SIGN IN to get more discount details<br/>登録するとクーポンが取得できる</label>
+					</li>
+					<li><img src="/images/ssss.png" alt=" " class="active" /></li>
+					<li><img src="/images/arrow.png" alt=" " class="active" /></li>
+					<li><a href="/signin" class="active"> Sign In</a> </li>
+					<li><a href="/signup"> Sign Up</a> </li>
+				</ul>
+
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+
+		<div class="content white">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<img src="/images/fireeggicon.png" alt=" " class="img-responsive" />
+					</div>
+
+					<!--/.navbar-header-->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<nav>
+							<ul class="nav navbar-nav">
+								<li><a href="/index" class="dropdown-toggle">HOME/ホーム</a></li>
+								<% if (authElement) {%>
+									<li><a href="/discount" class="dropdown-toggle">DISCOUNT/ディスカウント</a></li>
+								<%}%>
+                                <li class="dropdown">
+                                    <a  class="dropdown-toggle" data-toggle="dropdown">PRODUCTS/プロダクツ<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="https://www.amazon.com/shops/A20RYO65Q3ANTR?ref_=v_sp_storefront">FIREEGG-USA</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="https://www.amazon.co.jp/shops/A17X8WT0B8BGLY?ref_=v_sp_storefront">FIREEGG-Japan</a></li>
+                                        <li class="divider"></li>
+                                    </ul>
+                                </li>
+								<li class="dropdown">
+									<a  class="dropdown-toggle" data-toggle="dropdown">SUPPORT/サポート<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="/reportProblem">Report Problem</a></li>
+										<li class="divider"></li>
+										<li><a href="/mail">Mail Us</a></li>
+										<li class="divider"></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<!--/.navbar-collapse-->
+					<!--/.navbar-->
+				</div>
+			</nav>
+		</div>
+	</div>
+	<!-- banner -->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner" role="listbox">
+            <!-- tip: 如果需要新增这种类型的页面,图片注入在css/style.css搜索item -->
+			<% for (var i = 0; i < products.length; i++) {
+				if (i==0) {%>
+				<div id="itemId_<%=i%>" class="item active" style="background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(/images/<%=products[i].image%>) no-repeat ;
+					background: -moz-linear-gtradien(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(/images/<%=products[i].image%>) no-repeat;
+					background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(/images/<%=products[i].image%>) no-repeat;
+					background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(/images/<%=products[i].image%>) no-repeat;
+					background-size: contain;background-position: center center;">
+					<div class="container">
+						<div class="carousel-caption">
+							<br/><br/><br/><br/>
+							<br/><br/><br/><br/>
+							<br/><br/><br/><br/>
+							<p><a id="item_usLink_<%=i%>" href="<%=products[i].uslink%>"
+								  style="border: 0px!important;"
+								  title="Buy it on Amazon.com"><%=products[i].usname%></a></p>
+							<p><a id="item_jpLink_<%=i%>" href="<%=products[i].jplink%>"
+								  style="border: 0px!important;"
+								  title="Amazon.co.jpで購入する"><%=products[i].jpname%></a></p>
+							<div class="banner_form_agileits">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			<%} else {%>
+			<div id="itemId_<%=i%>" class="item item<%=i+1%>" style="background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(/images/<%=products[i].image%>) no-repeat ;
+					background: -moz-linear-gtradien(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(/images/<%=products[i].image%>) no-repeat;
+					background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(/images/<%=products[i].image%>) no-repeat;
+					background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(/images/<%=products[i].image%>) no-repeat;
+					background-size: contain;background-position: center center;">
+				<div class="container">
+					<div class="carousel-caption">
+						<br/><br/><br/><br/>
+						<br/><br/><br/><br/>
+						<br/><br/><br/><br/>
+						<p><a id="item_usLink_<%=i%>" href="<%=products[i].uslink%>"
+							  style="border: 0px!important;"
+							  title="Buy it on Amazon.com"><%=products[i].usname%></a></p>
+						<p><a id="item_jpLink_<%=i%>" href="<%=products[i].jplink%>"
+							  style="border: 0px!important;"
+							  title="Amazon.co.jpで購入する"><%=products[i].jpname%></a></p>
+						<div class="banner_form_agileits">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<%}}%>
+		</div>
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			<span class="fa fa-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			<span class="fa fa-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+		<!-- The Modal -->
+	</div>
+	<!--//banner -->
+	<ul id="showSelect" class="dropdown-menu" style="cursor: pointer;">
+		<li><a id="usLinkA" href="">Buy it on Amazon.com</a></li>
+		<li class="divider"></li>
+		<li><a id="jpLinkA" href="">Amazon.co.jpで購入する</a></li>
+		<li class="divider"></li>
+	</ul>
+    <!-- footer -->
+    <div class="footer_top_agile_w3ls">
+        <div class="container">
+            <div class="col-md-6 footer_grid">
+                <h3>About Us</h3>
+                <p>Nam libero tempore cum vulputate id est id, pretium semper enim. Morbi viverra congue eros.</p>
+            </div>
+
+            <div class="col-md-6 footer_grid">
+                <h3>Contact Info</h3>
+                <ul class="address">
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:fireegg-services@outlook.com">fireegg-services@outlook.com</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="footer_wthree_agile">
+        <p>© 2017 Lively Chat. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+
+    </div>
+
+    <!-- //footer -->
+	<!-- js -->
+	<script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+	<script>
+		$('ul.dropdown-menu li').hover(function () {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+		}, function () {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+		});
+
+
+        $(document).ready(function(){
+
+            var timer = null;
+
+			for (var i=0;i < 4; i++) {
+			    $("#itemId_"+i).mouseover(function(e){
+
+
+                    timer = setTimeout(function () {
+                        $("#showSelect").show();
+                    },2000);
+                });
+                $("#itemId_"+i).mouseout(function () {
+                    clearTimeout(timer);
+                    setTimeout(function () {
+                        $("#showSelect").hide()
+                    },2000);
+                });
+			    $("#itemId_"+i).mousemove(function (e) {
+                    $("#showSelect").css({left:e.clientX + "px",top:e.clientY + "px"});
+
+                    var currId = this.id;
+                    var index = currId.substr(currId.length-1);
+                    var uslink = $("#item_usLink_"+index)[0].href;
+                    var jplink = $("#item_jpLink_"+index)[0].href;
+                    $("#usLinkA")[0].href = uslink;
+                    $("#jpLinkA")[0].href = jplink;
+                });
+
+			}
+        });
+	</script>
+	<!-- stats -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.countup.js"></script>
+	<script>
+		$('.counter').countUp();
+	</script>
+	<!-- //stats -->
+
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
+
+</html>
