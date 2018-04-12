@@ -48,16 +48,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 			<div class="header_right">
+                <% if (!authElement) {%>
 				<ul class="forms_right">
 					<li>
 						<label style="color:#999c9e;font-size: 10px;">SIGN IN to get more discount details<br/>登録するとクーポンが取得できる</label>
 					</li>
-					<li><img src="/images/ssss.png" alt=" " class="active" /></li>
-					<li><img src="/images/arrow.png" alt=" " class="active" /></li>
-					<li><a href="/signin" class="active"> Sign In</a> </li>
+					<li><img src="/images/arrow.png" alt=" " class="img-responsive" /></li>
+					<li><a href="/signin"> Sign In</a> </li>
 					<li><a href="/signup"> Sign Up</a> </li>
 				</ul>
-
+                <%} else {%>
+				<ul class="forms_right">
+					<li><a href="/signout"> Sign Out</a> </li>
+				</ul>
+                <%}%>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -80,11 +84,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<nav>
 							<ul class="nav navbar-nav">
 								<li><a href="/index" class="dropdown-toggle">HOME/ホーム</a></li>
-								<% if (authElement) {%>
-									<li><a href="/discount" class="dropdown-toggle">DISCOUNT/ディスカウント</a></li>
-								<%}%>
-                                <li class="dropdown">
-                                    <a  class="dropdown-toggle" data-toggle="dropdown">PRODUCTS/プロダクツ<b class="caret"></b></a>
+								<li><a href="/discount" class="dropdown-toggle">PRODUCTS/プロダクツ</a></li>
+								<li class="dropdown">
+									<a  class="dropdown-toggle" data-toggle="dropdown">Amazon<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="https://www.amazon.com/shops/A20RYO65Q3ANTR?ref_=v_sp_storefront">FIREEGG-USA</a></li>
                                         <li class="divider"></li>
@@ -198,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <div class="footer_wthree_agile">
-        <p>© 2017 Lively Chat. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+
 
     </div>
 

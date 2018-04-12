@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 
     //验证登录状态
     var authElement = false;
+    //console.log('session:'+req.session.email)
     if (req.session.email) {
         authElement = true;
     }

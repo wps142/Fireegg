@@ -1,13 +1,19 @@
 var mysql = require('mysql');
 
-var pool = mysql.createPool({
-    host: '47.104.147.105',
-    user: 'fireegg',
-    password: '868435',
-    database: 'fireegg',
-    port: 3306
-});
-
+ var pool = mysql.createPool({
+     host: '47.104.147.105',
+     user: 'fireegg',
+     password: '868435',
+     database: 'fireegg',
+     port: 3306
+ });
+//var pool = mysql.createPool({
+//    host: '127.0.0.1',
+//    user: 'admin',
+//    password: 'admin',
+//    database: 'fireegg',
+//    port: 3306
+//});
 function __connection(callback)  {
     pool.getConnection(function(err,conn){
         callback(err,conn);

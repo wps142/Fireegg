@@ -164,6 +164,22 @@ app.post("/reportProblem/toUs",function(req,res) {
 
 });
 
+app.get("/signout",function(req,res){
+    //console.log('登出');
+    req.session.destroy(function(err){
+        if (err) {
+            console.log(err);
+            res.send(err);
+            return;
+        }
+    });
+
+    //res.clearCookie();
+    //console.log('跳转主页');
+    res.redirect("/index");
+
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

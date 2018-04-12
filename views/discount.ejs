@@ -57,6 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
             <div class="header_right">
+                <% if (!authElement) {%>
                 <ul class="forms_right">
                     <li>
                         <label style="color:#999c9e;font-size: 10px;">SIGN IN to get more discount details<br/>登録するとクーポンが取得できる</label>
@@ -65,7 +66,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="/signin"> Sign In</a> </li>
                     <li><a href="/signup"> Sign Up</a> </li>
                 </ul>
-
+                <%} else {%>
+                <ul class="forms_right">
+                    <li><a href="/signout"> Sign Out</a> </li>
+                </ul>
+                <%}%>
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -87,11 +92,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<nav>
 							<ul class="nav navbar-nav">
 								<li><a href="/index" class="dropdown-toggle">HOME/ホーム</a></li>
-                                <% if (authElement) {%>
-                                    <li><a href="/discount" class="dropdown-toggle">DISCOUNT/ディスカウント</a></li>
-                                <%}%>
+                                <li><a href="/discount" class="dropdown-toggle">PRODUCTS/プロダクツ</a></li>
                                 <li class="dropdown">
-                                    <a  class="dropdown-toggle" data-toggle="dropdown">PRODUCTS/プロダクツ<b class="caret"></b></a>
+                                    <a  class="dropdown-toggle" data-toggle="dropdown">Amazon<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="https://www.amazon.com/shops/A20RYO65Q3ANTR?ref_=v_sp_storefront">FIREEGG-USA</a></li>
                                         <li class="divider"></li>
@@ -118,9 +121,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- banner -->
-	<div class="banner_inner_content_agile_w3l">
-		<p>Add Some Description</p>
-	</div>
+    <!--<div class="banner_inner_content_agile_w3l">
+        <p>Add Some Description</p>
+    </div>-->
 	<!--//banner -->
 	<!--/w3_short-->
 	<div class="services-breadcrumb_w3ls">
@@ -151,8 +154,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             |<br/><%=products[i].jpname%></h3>
                         <hr class="soft"/>
                         <div style="float: right;">
+                            <%if(products[i].uscode=='' || !authElement) {%>
+                                <p>Fireegg-USA：No discount  <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
+                            <%} else {%>
                                 <p>Fireegg-USA：<%=products[i].uscode%>  <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
-                            <%if(products[i].jpcode=='') {%>
+                            <%}%>
+
+                            <%if(products[i].jpcode=='' || !authElement) {%>
                                 <p>Fireegg-Japan： 割引なし <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a> </p>
                             <%} else {%>
                                 <p>Fireegg-Japan： <%=products[i].jpcode%> <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a> </p>
@@ -185,7 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <div class="footer_wthree_agile">
-        <p>© 2017 Lively Chat. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+
 
     </div>
 
