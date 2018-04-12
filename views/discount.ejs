@@ -154,13 +154,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             |<br/><%=products[i].jpname%></h3>
                         <hr class="soft"/>
                         <div style="float: right;">
-                            <%if(products[i].uscode=='' || !authElement) {%>
+                            <%if( !authElement) {%>
+                                <p>Fireegg-USA： <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
+                            <%} else if (products[i].uscode==''){%>
                                 <p>Fireegg-USA：No discount  <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
                             <%} else {%>
                                 <p>Fireegg-USA：<%=products[i].uscode%>  <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
                             <%}%>
 
-                            <%if(products[i].jpcode=='' || !authElement) {%>
+                            <%if( !authElement) {%>
+                                <p>Fireegg-Japan： <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a></p>
+                            <%} else if (products[i].jpcode==''){%>
                                 <p>Fireegg-Japan： 割引なし <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a> </p>
                             <%} else {%>
                                 <p>Fireegg-Japan： <%=products[i].jpcode%> <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a> </p>
