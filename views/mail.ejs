@@ -33,6 +33,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
 	    rel='stylesheet' type='text/css'>
 	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
+	<style type="text/css">
+		.autoLog{ margin-top:20px}
+		@media screen and (max-width: 767px) {
+			.autoLog {margin-top:0px}
+		}
+		.autoHead{
+			/*margin-bottom:5px*/
+		}
+		@media screen and (max-width: 504px) {
+			.autoHead {margin-top: 5px;}
+		}
+		.autoArrow{
+			/*margin-bottom:5px*/
+		}
+		@media screen and (max-width: 415px) {
+			.autoArrow {margin-left: 100px;}
+		}
+	</style>
 </head>
 
 <body>
@@ -50,16 +68,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="header_right">
                 <% if (!authElement) {%>
 				<ul class="forms_right">
-					<li>
+					<li style="margin-left:100px;" class="autoHead">
 						<label style="color:#999c9e;font-size: 10px;">SIGN IN to get more discount details<br/>登録するとクーポンが取得できる</label>
 					</li>
-					<li><img src="/images/arrow.png" alt=" " class="img-responsive" /></li>
-					<li><a href="/signin"> Sign In</a> </li>
-					<li><a href="/signup"> Sign Up</a> </li>
+					<li class="autoHead autoArrow"><img src="/images/arrow.png" alt=" " class="img-responsive" /></li>
+					<li class="autoHead"><a href="/signin"> Sign In</a> </li>
+					<li class="autoHead"><a href="/signup"> Sign Up</a> </li>
 				</ul>
                 <%} else {%>
 				<ul class="forms_right">
-					<li><a href="/signout"> Sign Out</a> </li>
+					<li class="autoHead"><a href="/signout"> Sign Out</a> </li>
 				</ul>
                 <%}%>
 
@@ -77,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <img src="/images/fireeggicon.png" alt=" " class="img-responsive" />
+                        <img src="/images/fireeggicon.png" alt=" " class="img-responsive autoLog" />
                     </div>
 					<!--/.navbar-header-->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -136,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="inner_sec_info_agileits_w3">
 				<div class="contact-form">
-					     <form method="post" action="/mail/toUs">
+					     <form method="post" action="/mail/toUs" onsubmit="return mySubmit();">
 							 <div class="left_form">
 					    	<div>
 						    	<span><label>Name/名前<span style="color:red;font-weight: bold;" >*</span></label></span>
@@ -164,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 
 							   	<div>
-									<span><input type="submit" value="Submit" class="myButton"></span>
+									<span><input id="mailBtn" type="submit" value="Submit" class="myButton"></span>
 							  	</div>
 					    </div>
 					    <div class="clearfix"></div>
@@ -200,6 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //footer -->
 	<!-- js -->
 	<script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="/js/tips.js"></script>
 	<script>
 		$('ul.dropdown-menu li').hover(function () {
 			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
@@ -209,20 +228,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- password-script -->
 	<script type="text/javascript">
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
+        function mySubmit() {
 
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
+
+            var dataJson = {name : $('input[name="name"]').val(), email : $('input[name="email"]').val(),
+                message : $('input[name="message"]').val(), country : $('select[name="country"] option:selected').val()};
+
+            $.ajax({
+                url : "/mail/toUs",
+                type : "post",
+                data : dataJson,
+                error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(textStatus);
+                },
+                success : function(data) {
+                    tips({msg:data});
+                    $("#mailBtn").attr("disabled",true);
+                    $("#mailBtn").removeClass("myButton");
+                    $("#mailBtn").addClass("myButtonDisable");
+                }
+
+            });
+
+            return false;
+        }
 	</script>
 	<!-- //password-script -->
 	<script type="text/javascript" src="/js/bootstrap.js"></script>

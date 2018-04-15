@@ -44,7 +44,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 .maincolumn { display:none; width:0px;}
             }
             }
-
+            .autoLog{ margin-top:20px}
+            @media screen and (max-width: 767px) {
+                .autoLog {margin-top:0px}
+            }
+            .autoHead{
+                /*margin-bottom:5px*/
+            }
+            @media screen and (max-width: 504px) {
+                .autoHead {margin-top: 5px;}
+            }
+            .autoArrow{
+                /*margin-bottom:5px*/
+            }
+            @media screen and (max-width: 415px) {
+                .autoArrow {margin-left: 100px;}
+            }
         </style>
     </head>
     <!--gif图-->
@@ -61,14 +76,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
         <div class="header_right">
+            <% if (!authElement) {%>
             <ul class="forms_right">
-                <li>
+                <li style="margin-left:100px;" class="autoHead">
                     <label style="color:#999c9e;font-size: 10px;">SIGN IN to get more discount details<br/>登録するとクーポンが取得できる</label>
                 </li>
-                <li><img src="/images/arrow.png" alt=" " class="active" /></li>
-                <li><a href="/signin" class="active"> Sign In</a> </li>
-                <li><a href="/signup"> Sign Up</a> </li>
+                <li class="autoHead autoArrow"><img src="/images/arrow.png" alt=" " class="img-responsive" /></li>
+                <li class="autoHead"><a href="/signin"> Sign In</a> </li>
+                <li class="autoHead"><a href="/signup"> Sign Up</a> </li>
             </ul>
+            <%} else {%>
+            <ul class="forms_right">
+                <li class="autoHead"><a href="/signout"> Sign Out</a> </li>
+            </ul>
+            <%}%>
 
         </div>
         <div class="clearfix"> </div>
@@ -84,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <img src="/images/fireeggicon.png" alt=" " class="img-responsive" />
+                    <img src="/images/fireeggicon.png" alt=" " class="img-responsive autoLog" />
                 </div>
 
                 <!--/.navbar-header-->

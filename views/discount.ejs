@@ -40,8 +40,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin-left:10%;
             margin-right: 10%;
         }
-
-	</style>
+        .autoLog{ margin-top:20px}
+        @media screen and (max-width: 767px) {
+            .autoLog {margin-top:0px}
+        }
+        .autoHead{
+            /*margin-bottom:5px*/
+        }
+        @media screen and (max-width: 504px) {
+            .autoHead {margin-top: 5px;}
+        }
+        .autoArrow{
+            /*margin-bottom:5px*/
+        }
+        @media screen and (max-width: 415px) {
+            .autoArrow {margin-left: 100px;}
+        }
+    </style>
 </head>
 
 <body>
@@ -59,16 +74,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="header_right">
                 <% if (!authElement) {%>
                 <ul class="forms_right">
-                    <li>
+                    <li style="margin-left:100px;" class="autoHead">
                         <label style="color:#999c9e;font-size: 10px;">SIGN IN to get more discount details<br/>登録するとクーポンが取得できる</label>
                     </li>
-                    <li><img src="/images/arrow.png" alt=" " class="img-responsive" /></li>
-                    <li><a href="/signin"> Sign In</a> </li>
-                    <li><a href="/signup"> Sign Up</a> </li>
+                    <li class="autoHead autoArrow"><img src="/images/arrow.png" alt=" " class="img-responsive" /></li>
+                    <li class="autoHead"><a href="/signin"> Sign In</a> </li>
+                    <li class="autoHead"><a href="/signup"> Sign Up</a> </li>
                 </ul>
                 <%} else {%>
                 <ul class="forms_right">
-                    <li><a href="/signout"> Sign Out</a> </li>
+                    <li class="autoHead"><a href="/signout"> Sign Out</a> </li>
                 </ul>
                 <%}%>
             </div>
@@ -85,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <img src="/images/fireeggicon.png" alt=" " class="img-responsive" />
+                        <img src="/images/fireeggicon.png" alt=" " class="img-responsive autoLog" />
                     </div>
 					<!--/.navbar-header-->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -146,30 +161,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <hr class="soft"/>
             <% for (var i = 0; i < products.length; i++) {%>
                 <div class="row center-block">
-                    <div class="col-sm-4 col-md-2">
+                    <div class="col-sm-4 col-md-4" >
                         <img src="/images/<%=products[i].image%>" width="200px" height="200px" alt=""/>
                     </div>
-                    <div class="col-sm-11 col-md-9" style="margin-left: 5%;">
-                        <h3><%=products[i].usname%>
-                            |<br/><%=products[i].jpname%></h3>
-                        <hr class="soft"/>
-                        <div style="float: right;">
+                    <div class="col-sm-7   col-md-7" style="margin-left: 5%;">
+                       <!-- <div style="float: right;"> -->
                             <%if( !authElement) {%>
-                                <p>Fireegg-USA： <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
+                                <p><%=products[i].usname%> <br/> Fireegg-USA： <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
                             <%} else if (products[i].uscode==''){%>
-                                <p>Fireegg-USA：No discount  <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
+                                <p><%=products[i].usname%> <br/> Fireegg-USA：No discount  <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
                             <%} else {%>
-                                <p>Fireegg-USA：<%=products[i].uscode%>  <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
+                                <p><%=products[i].usname%> <br/> Fireegg-USA：<%=products[i].uscode%>  <a class="btn btn-default" href="<%=products[i].uslink%>" role="button">Purchase</a></p>
                             <%}%>
 
                             <%if( !authElement) {%>
-                                <p>Fireegg-Japan： <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a></p>
+                                <p><%=products[i].jpname%> <br/> Fireegg-Japan： <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a></p>
                             <%} else if (products[i].jpcode==''){%>
-                                <p>Fireegg-Japan： 割引なし <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a> </p>
+                                <p><%=products[i].jpname%> <br/> Fireegg-Japan： 割引なし <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a> </p>
                             <%} else {%>
-                                <p>Fireegg-Japan： <%=products[i].jpcode%> <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a> </p>
+                                <p><%=products[i].jpname%> <br/> Fireegg-Japan： <%=products[i].jpcode%> <a class="btn btn-default" href="<%=products[i].jplink%>" role="button">購入</a> </p>
                             <%}%>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -213,20 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- password-script -->
 	<script type="text/javascript">
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
 
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
         function changeFrameHeight(){
             var ifm= document.getElementById("iframepage");
             var dHeight = ifm.contentWindow.document.documentElement.scrollHeight;
