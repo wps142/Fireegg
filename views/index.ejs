@@ -145,13 +145,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="carousel-caption">
 							<!--<br/><br/><br/><br/>
 							<br/><br/><br/><br/>
-							<br/><br/><br/><br/>
-							<p><a id="item_usLink_<%=i%>" href="<%=products[i].uslink%>"
+							<br/><br/><br/><br/>-->
+							<p style="display: none"><a id="item_usLink_<%=i%>" href="<%=products[i].uslink%>"
 								  style="border: 0px!important;"
 								  title="Buy it on Amazon.com"><%=products[i].usname%></a></p>
-							<p><a id="item_jpLink_<%=i%>" href="<%=products[i].jplink%>"
+							<p style="display: none"><a id="item_jpLink_<%=i%>" href="<%=products[i].jplink%>"
 								  style="border: 0px!important;"
-								  title="Amazon.co.jpで購入する"><%=products[i].jpname%></a></p>-->
+								  title="Amazon.co.jpで購入する"><%=products[i].jpname%></a></p>
 							<div class="banner_form_agileits">
 
 							</div>
@@ -169,12 +169,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<br/><br/><br/><br/>
 						<br/><br/><br/><br/>
 						<br/><br/><br/><br/>
-						<!--<p><a id="item_usLink_<%=i%>" href="<%=products[i].uslink%>"
+						<p style="display: none"><a id="item_usLink_<%=i%>" href="<%=products[i].uslink%>"
 							  style="border: 0px!important;"
 							  title="Buy it on Amazon.com"><%=products[i].usname%></a></p>
-						<p><a id="item_jpLink_<%=i%>" href="<%=products[i].jplink%>"
+						<p style="display: none"><a id="item_jpLink_<%=i%>" href="<%=products[i].jplink%>"
 							  style="border: 0px!important;"
-							  title="Amazon.co.jpで購入する"><%=products[i].jpname%></a></p>-->
+							  title="Amazon.co.jpで購入する"><%=products[i].jpname%></a></p>
 						<div class="banner_form_agileits">
 
 						</div>
@@ -201,7 +201,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<li class="divider"></li>
 	</ul>
     <!-- footer -->
-    <div class="footer_top_agile_w3ls">
+    <!--<div class="footer_top_agile_w3ls">
         <div class="container">
             <div class="col-md-6 footer_grid">
                 <h3>About Us</h3>
@@ -220,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="footer_wthree_agile">
 
 
-    </div>
+    </div>-->
 
     <!-- //footer -->
 	<!-- js -->
@@ -237,7 +237,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             var timer = null;
 
-			for (var i=0;i < 4; i++) {
+			for (var i=0;i < <%=products.length%>; i++) {
 			    $("#itemId_"+i).mouseover(function(e){
 
 

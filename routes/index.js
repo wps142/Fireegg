@@ -13,13 +13,14 @@ router.get('/', function(req, res, next) {
         authElement = true;
     }
 
-    mysqlDb.query("select sku,usname,jpname,image,uslink,jplink,ifnull(uscode,'No discount') uscode,ifnull(jpcode,'割引なし') jpcode from product_detail limit 1,4",[],function (err,field) {
+    mysqlDb.query("select sku,usname,jpname,image,uslink,jplink,ifnull(uscode,'No discount') uscode,ifnull(jpcode,'割引なし') jpcode from product_detail limit 0,4",[],function (err,field) {
 
         if (err) {
 console.log(err);
             res.redirect("/nothing");
             return;
         }
+       console.log(field);
         res.render('index', { "authElement": authElement, "products" : field });
     });
 
